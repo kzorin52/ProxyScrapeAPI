@@ -1,7 +1,7 @@
 # ProxyScrapeAPI
 Proxyscrape.com API C# implementation
 
-## Да. https://t.me/temnij52
+## Кто хочет помочь идеями и кодом - https://t.me/temnij52
 
 # Example
 ``` csharp
