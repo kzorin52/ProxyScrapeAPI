@@ -19,5 +19,6 @@ Proxyscrape.com API C# implementation
             anonymity: AnonymityType.elite, age: 5, port: 8081,
             averagetimeout: 5000; // Amount Of Specific Proxies As Int
             
-      string lastUpdates = api.LastUpdates(ProxyType.Socks4); // Get Time Of Last Update Proxies; out - "Around 54 seconds ago"
+      string lastUpdates = api.LastUpdates(ProxyType.Socks4); // Get Time Of Last Update Proxies;
+                                                              //  out - "Around 54 seconds ago"
 ```
