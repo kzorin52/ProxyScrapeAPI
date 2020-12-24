@@ -1,8 +1,7 @@
 # ProxyScrapeAPI
 Proxyscrape.com API C# implementation
-
 ## Кто хочет помочь идеями и кодом - https://t.me/temnij52
-
+# [![](https://img.shields.io/nuget/v/ProxyScrapeAPI?color=red&logo=TEMNIJ&logoColor=red&style=flat-square)](https://www.nuget.org/packages/ProxyScrapeAPI/)
 # Example
 ``` csharp
      using ProxyScrapeAPI;
