@@ -8,7 +8,7 @@ Proxyscrape.com API C# implementation
      // ...
      Scraper api = new Scraper();
 
-     api.DownloadProxies(Scraper.Https, "https.txt", timeout: 600, ssl: Scraper.SSLType.yes,
+     api.DownloadProxies(Scraper.ProxyType.Https, "https.txt", timeout: 600, ssl: Scraper.SSLType.yes,
             anonymity: Scraper.AnonymityType.elite, limit: 50, age: 5, port: 8081,
             averagetimeout: 5000); // Simply Download To File
             
