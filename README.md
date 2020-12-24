@@ -5,7 +5,9 @@ Proxyscrape.com API C# implementation
 
 # Example
 ``` csharp
-     ProxyScrapeAPI api = new ProxyScrapeAPI;
+     using ProxyScrapeAPI;
+
+     Scarper api = new Scarper();
 
      api.DownloadProxies(ProxyType.Https, "https.txt", timeout: 600, ssl: SSLType.ssl,
             anonymity: AnonymityType.elite, limit: 50, age: 5, port: 8081,
