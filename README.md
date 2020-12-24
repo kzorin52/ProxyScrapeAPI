@@ -24,8 +24,10 @@ Proxyscrape.com API C# implementation
                                                              //  out - "Around 54 seconds ago"
 ```
 
-# Если ошибка 'Необработанное исключение: System.Net.WebException: Запрос был прерван: Не удалось создать защищенный канал SSL/TLS'
+# 'Необработанное исключение: System.Net.WebException: Запрос был прерван: Не удалось создать защищенный канал SSL/TLS'
 ``` csharp
+     using System.Net;
+     // ...
      ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls |
                                        SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 ```
