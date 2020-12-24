@@ -23,3 +23,9 @@ Proxyscrape.com API C# implementation
      string lastUpdates = api.LastUpdates(Scraper.ProxyType.Socks4); // Get Time Of Last Update Proxies;
                                                              //  out - "Around 54 seconds ago"
 ```
+
+# Если ошибка 'Необработанное исключение: System.Net.WebException: Запрос был прерван: Не удалось создать защищенный канал SSL/TLS'
+``` csharp
+     ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls |
+                                       SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+```
