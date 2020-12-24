@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Text;
 
 namespace ProxyScrapeAPI
@@ -29,15 +30,13 @@ namespace ProxyScrapeAPI
             no,
             all
         }
-
-        public WebClient Downloader = new WebClient();
-
+        
 
         public void DownloadProxies(ProxyType? type, string path, int? timeout = null, SSLType? ssl = null,
             AnonymityType? anonymity = null, int? limit = null, int? age = null, int? port = null,
             int? averagetimeout = null)
         {
-            var DownloadLink = new StringBuilder("https://api.proxyscrape.com?request=getproxies?");
+            var DownloadLink = new StringBuilder("https://api.proxyscrape.com?request=getproxies&");
 
 
             if (type != null) DownloadLink.Append($"proxytype={type.ToString().ToLower()}&");
@@ -56,17 +55,17 @@ namespace ProxyScrapeAPI
 
             if (averagetimeout != null) DownloadLink.Append($"averagetimeout={averagetimeout}&");
 
-            Downloader.DownloadFile(DownloadLink.ToString().Substring(0, DownloadLink.Length - 1), path);
+            new WebClient().DownloadFile(DownloadLink.ToString().Substring(0, DownloadLink.Length - 1), path);
         }
 
         public string GetProxies(ProxyType? type, int? timeout = null, SSLType? ssl = null,
             AnonymityType? anonymity = null, int? limit = null, int? age = null, int? port = null,
             int? averagetimeout = null)
         {
-            var DownloadLink = new StringBuilder("https://api.proxyscrape.com?request=displayproxies?");
+            var DownloadLink = new StringBuilder("https://api.proxyscrape.com?request=displayproxies&");
 
 
-            if (type != null) DownloadLink.Append($"proxytype={type.ToString().ToLower()}&");
+            DownloadLink.Append($"proxytype={type.ToString().ToLower()}&");
 
             if (timeout != null) DownloadLink.Append($"timeout={timeout}&");
 
@@ -82,7 +81,7 @@ namespace ProxyScrapeAPI
 
             if (averagetimeout != null) DownloadLink.Append($"averagetimeout={averagetimeout}&");
 
-            return Downloader.DownloadString(DownloadLink.ToString().Substring(0, DownloadLink.Length - 1));
+            return new WebClient().DownloadString(DownloadLink.ToString().Substring(0, DownloadLink.Length - 1));
         }
 
         public int AmountProxies(ProxyType? type, int? timeout = null, SSLType? ssl = null,
@@ -106,12 +105,12 @@ namespace ProxyScrapeAPI
 
             if (averagetimeout != null) DownloadLink.Append($"averagetimeout={averagetimeout}&");
 
-            return int.Parse(Downloader.DownloadString(DownloadLink.ToString().Substring(0, DownloadLink.Length - 1)));
+            return int.Parse(new WebClient().DownloadString(DownloadLink.ToString().Substring(0, DownloadLink.Length - 1)));
         }
 
         public string LastUpdates(ProxyType? type)
         {
-            return Downloader.DownloadString(
+            return new WebClient().DownloadString(
                 $"https://api.proxyscrape.com/?request=lastupdated&proxytype={type.ToString().ToLower()}");
         }
     }
